@@ -4,6 +4,8 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
+import org.apache.struts2.json.annotations.JSON;
+
 /**
  * SysRole entity. @author MyEclipse Persistence Tools
  */
@@ -16,6 +18,9 @@ public class SysRole implements java.io.Serializable {
 	private String roleName;
 	private Date createDate;
 	private String description;
+
+
+
 	private Set sysRoleMenus = new HashSet(0);
 	private Set sysUserRoles = new HashSet(0);
 

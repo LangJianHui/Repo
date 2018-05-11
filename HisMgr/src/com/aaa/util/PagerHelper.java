@@ -10,7 +10,7 @@ import org.springframework.orm.hibernate3.HibernateCallback;
 
 import com.aaa.entity.Pager;
 
-public class PagerCallBack2<T> implements HibernateCallback<Pager> {
+public class PagerHelper<T> implements HibernateCallback<Pager> {
 	
 	//ÒªÖ´ÐÐµÄÃüÁî
 	private String hql;
@@ -23,7 +23,7 @@ public class PagerCallBack2<T> implements HibernateCallback<Pager> {
 	private int pageSize;
 	
 	
-	public PagerCallBack2(String hql,String hql1, Object[] params, int curPage, int pageSize) {
+	public PagerHelper(String hql,String hql1, Object[] params, int curPage, int pageSize) {
 		super();
 		this.hql = hql;
 		this.hql1=hql1;
