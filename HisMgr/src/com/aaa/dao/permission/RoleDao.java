@@ -1,15 +1,24 @@
 package com.aaa.dao.permission;
 
 import java.util.List;
+import java.util.Map;
 
 import com.aaa.entity.Pager;
+import com.aaa.entity.SysMenu;
 import com.aaa.entity.SysRole;
+import com.aaa.entity.TreeNode;
 
 public interface RoleDao {
 	public void save(SysRole role);
 	public void update(SysRole  role);
+	//public void saveOrUpdate(SysRole role);
 	public void delete(SysRole role);
+	public Map findById(int id);
 	public Pager findByPages(Pager pager);
 	public boolean isExists(String roleName);
 	
+	
+	//角色权限
+	//查询所有菜单项，并获取到对应角色编号的菜单
+	public List findAllMenusByRoleId(int roleId);
 }

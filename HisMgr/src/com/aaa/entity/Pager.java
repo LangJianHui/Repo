@@ -33,7 +33,8 @@ public class Pager {
 		return curPage;
 	}
 	public void setCurPage(int curPage) {
-		this.curPage = curPage;
+		
+			this.curPage = curPage;
 	}
 	public int getPageSize() {
 		return pageSize;

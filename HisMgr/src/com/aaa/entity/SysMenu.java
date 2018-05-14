@@ -14,9 +14,9 @@ public class SysMenu implements java.io.Serializable {
 
 	private Integer menuId;
 	private String menuUrl;
-	private String menuClass;
+	private String menuName;
 	private String menuCode;
-	private String menuParentCode;
+	private Integer menuParentId;
 	private Integer menuOrder;
 	private String menuType;
 	private Date createTime;
@@ -29,12 +29,12 @@ public class SysMenu implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public SysMenu(String menuUrl, String menuClass, String menuCode, String menuParentCode, Integer menuOrder,
+	public SysMenu(String menuUrl, String menuName, String menuCode, Integer menuParentId, Integer menuOrder,
 			String menuType, Date createTime, Set sysRoleMenus) {
 		this.menuUrl = menuUrl;
-		this.menuClass = menuClass;
+		this.menuName = menuName;
 		this.menuCode = menuCode;
-		this.menuParentCode = menuParentCode;
+		this.menuParentId = menuParentId;
 		this.menuOrder = menuOrder;
 		this.menuType = menuType;
 		this.createTime = createTime;
@@ -59,12 +59,12 @@ public class SysMenu implements java.io.Serializable {
 		this.menuUrl = menuUrl;
 	}
 
-	public String getMenuClass() {
-		return this.menuClass;
+	public String getMenuName() {
+		return this.menuName;
 	}
 
-	public void setMenuClass(String menuClass) {
-		this.menuClass = menuClass;
+	public void setMenuName(String menuName) {
+		this.menuName = menuName;
 	}
 
 	public String getMenuCode() {
@@ -75,12 +75,12 @@ public class SysMenu implements java.io.Serializable {
 		this.menuCode = menuCode;
 	}
 
-	public String getMenuParentCode() {
-		return this.menuParentCode;
+	public Integer getMenuParentId() {
+		return this.menuParentId;
 	}
 
-	public void setMenuParentCode(String menuParentCode) {
-		this.menuParentCode = menuParentCode;
+	public void setMenuParentId(Integer menuParentId) {
+		this.menuParentId = menuParentId;
 	}
 
 	public Integer getMenuOrder() {
