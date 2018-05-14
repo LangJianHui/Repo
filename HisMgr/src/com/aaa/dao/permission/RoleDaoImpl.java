@@ -17,6 +17,7 @@ import org.springframework.stereotype.Repository;
 import com.aaa.entity.Pager;
 import com.aaa.entity.SysMenu;
 import com.aaa.entity.SysRole;
+import com.aaa.entity.SysRoleMenu;
 import com.aaa.entity.TreeNode;
 import com.aaa.util.PageCallBack;
 import com.aaa.util.PagerHelper;
@@ -94,6 +95,18 @@ public class RoleDaoImpl implements RoleDao {
 			}
 		});
 		return list;
+	}
+
+	@Override
+	public void insertMenusForRole(SysRoleMenu roleMenu) {
+		this.template.save(roleMenu);
+	}
+
+	@Override
+	public void deleteMenusForRole(int roleId) {
+		String hql="delete from SysRoleMenu where sysRole.roleId="+roleId;
+		this.template.bulkUpdate(hql);//批量更新
+		
 	}
 
 	
