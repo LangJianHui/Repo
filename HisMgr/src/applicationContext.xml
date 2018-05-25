@@ -35,7 +35,12 @@
 				<value>com/aaa/entity/SysMenu.hbm.xml</value>
 				<value>com/aaa/entity/SysUser.hbm.xml</value>
 				<value>com/aaa/entity/SysRoleMenu.hbm.xml</value>
-				<value>com/aaa/entity/SysRole.hbm.xml</value></list>
+				<value>com/aaa/entity/SysRole.hbm.xml</value>
+				<value>com/aaa/entity/Indetail.hbm.xml</value>
+				<value>com/aaa/entity/Drug.hbm.xml</value>
+				<value>com/aaa/entity/Instock.hbm.xml</value>
+				<value>com/aaa/entity/Store.hbm.xml</value>
+				<value>com/aaa/entity/Category.hbm.xml</value></list>
 		</property></bean>
 		
 		<bean id="template" class="org.springframework.orm.hibernate3.HibernateTemplate">

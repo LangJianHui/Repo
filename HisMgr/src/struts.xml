@@ -8,7 +8,16 @@
 
 	<package name="deafult" namespace="/" extends="json-default">
 		<action name="role_*" class="com.aaa.actions.permission.RoleAction" method="{1}">
-		<result name="success">${target}</result>
+			<result name="success">${target}</result>
+		</action>
+		<action name="stock_*" class="com.aaa.actions.instore.InStockAction" method="{1}">
+			<result name="success">${target}</result>
+		</action>
+		<action name="drug_*" class="com.aaa.actions.instore.DrugAction" method="{1}">
+			<result name="save">${target}</result>
+		</action>
+		<action name="menu_*" class="com.aaa.actions.permission.MenuAction" method="{1}">
+			<result name="save">${target}</result>
 		</action>
 	</package>
 </struts>    

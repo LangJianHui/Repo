@@ -14,6 +14,7 @@ public class PagerHelper<T> implements HibernateCallback<Pager> {
 	
 	//要执行的命令
 	private String hql;
+	//获取总数量
 	private String hql1;
 	//参数数组
 	private Object[] params;

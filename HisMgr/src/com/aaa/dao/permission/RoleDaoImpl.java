@@ -43,7 +43,7 @@ public class RoleDaoImpl implements RoleDao {
 
 	@Override
 	public Pager findByPages(Pager pager) {
-		String hql="select new Map(roleId as roleId,roleName as roleName,description as description) from SysRole ";
+		String hql="select new Map(roleId as roleId ,roleName as roleName,description as description) from SysRole ";
 		String hql1="select count(*) from SysRole";
 		Pager p=this.template.execute(new PagerHelper(hql, hql1, null, pager.getCurPage(), pager.getPageSize()));
 		return p;
@@ -77,7 +77,7 @@ public class RoleDaoImpl implements RoleDao {
 	@Override
 	public List findAllMenusByRoleId(int roleId) {
 		//±æµÿsql≤È—Ø
-		final String sql="select m.menu_id,menu_parent_id,menu_name,"
+		final String sql="select m.menu_id,menu_parent_id,menu_name,1 as open, "
 				+ "(case when role_id is not null then true else false end) as checked "
 				+ "from sys_menu m left join "
 				+ "(select * from sys_role_menu rm where rm.role_id=?) as rm "

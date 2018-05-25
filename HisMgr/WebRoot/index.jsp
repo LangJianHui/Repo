@@ -24,6 +24,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   
   <body>
     	<h2>医院信息管理系统演示版</h2>
-    	<a href="roleAdmin.jsp">角色管理演示</a>
+    	<a href="admin/index.jsp">后台管理</a>
   </body>
 </html>
