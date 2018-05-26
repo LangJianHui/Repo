@@ -29,13 +29,6 @@ import com.aaa.util.Util;
 public class RoleDaoImpl implements RoleDao {
 	@Autowired
 	private HibernateTemplate template;
-
-	
-
-//	public void saveOrUpdate(SysRole role){
-//		this.template.saveOrUpdate(role);
-//	}
-
 	@Override
 	public void delete(SysRole role) {
 		this.template.delete(role);
@@ -107,6 +100,20 @@ public class RoleDaoImpl implements RoleDao {
 		String hql="delete from SysRoleMenu where sysRole.roleId="+roleId;
 		this.template.bulkUpdate(hql);//批量更新
 		
+	}
+
+	@Override
+	public Pager findAll(Pager pager, Object... params) {
+		
+		String strWhere=" where roleName like ? ";//查询条件
+		String hql="select new Map(roleId as roleId ,roleName as roleName,description as description) from SysRole ";
+		String hql1="select count(*) from SysRole " ;
+		if(params!=null&&params.length>0){//如果参数不为空，绑定查询条件
+			hql+=strWhere;
+			hql1+=strWhere;
+		}
+		Pager p=this.template.execute(new PagerHelper(hql, hql1, params, pager.getCurPage(), pager.getPageSize()));
+		return p;
 	}
 
 	

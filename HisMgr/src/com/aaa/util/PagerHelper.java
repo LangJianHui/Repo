@@ -37,11 +37,7 @@ public class PagerHelper<T> implements HibernateCallback<Pager> {
 	public Pager doInHibernate(Session session) throws HibernateException, SQLException {
 		//分页
 		Query query=session.createQuery(hql);
-		if(params!=null){
-			for (int i = 0; i < params.length; i++) {
-				query.setParameter(i, params[i]);//添加参数
-			}
-		}
+		setParams(query,params);//绑定参数
 		query.setFirstResult((curPage-1)*pageSize);
 		query.setMaxResults(pageSize);
 		//得到分页对象
@@ -51,8 +47,22 @@ public class PagerHelper<T> implements HibernateCallback<Pager> {
 		p.setList(query.list());
 		//再次查询得到满足条件的总数量
 		query= session.createQuery(hql1);
+		setParams(query,params);//绑定参数
 		p.setTotalCount(Integer.parseInt(query.uniqueResult().toString()));
 		return p;
+	}
+	
+	/**
+	 * 给Query对象绑定参数
+	 * @param query  query对象
+	 * @param params 参数集合
+	 */
+	private void setParams(Query query,Object[] params){
+		if(params!=null){
+			for (int i = 0; i < params.length; i++) {
+				query.setParameter(i, params[i]);//添加参数
+			}
+		}
 	}
 	
 	

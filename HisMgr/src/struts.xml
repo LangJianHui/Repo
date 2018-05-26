@@ -15,6 +15,7 @@
 		</action>
 		<action name="drug_*" class="com.aaa.actions.instore.DrugAction" method="{1}">
 			<result name="save">${target}</result>
+
 		</action>
 		<action name="menu_*" class="com.aaa.actions.permission.MenuAction" method="{1}">
 			<result name="save">${target}</result>

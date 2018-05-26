@@ -12,11 +12,17 @@ import com.aaa.entity.TreeNode;
 public interface RoleDao {
 	public void save(SysRole role);
 	public void update(SysRole  role);
-	//public void saveOrUpdate(SysRole role);
 	public void delete(SysRole role);
 	public Map findById(int id);
 	public Pager findByPages(Pager pager);
 	public boolean isExists(String roleName);
+	/**
+	 * 可以进行条件查询和分页
+	 * @param pager 分页实体
+	 * @param params 条件参数
+	 * @return 分页实体
+	 */
+	public Pager findAll(Pager pager,Object... params);
 	
 	
 	//角色权限
