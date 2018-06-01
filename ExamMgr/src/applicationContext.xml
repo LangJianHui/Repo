@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd">
+
+
+	<!-- 注解扫描 -->
+	<context:component-scan base-package="com.aaa"></context:component-scan>
+
+
+	<!-- 数据源 -->
+	<bean id="dataSource"
+		class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="url"
+			value="jdbc:mysql://localhost:3306/exam_db">
+		</property>
+		<property name="username" value="root"></property>
+		<property name="password" value="123456"></property>
+		<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
+	</bean>
+	<!-- 会话工厂 -->
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource">
+			<ref bean="dataSource" />
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">
+					org.hibernate.dialect.MySQLDialect
+				</prop>
+			</props>
+		</property>
+		<property name="mappingResources">
+			<list>
+				<value>com/aaa/entity/TabExamQuestion.hbm.xml</value>
+				<value>com/aaa/entity/TabUserRole.hbm.xml</value>
+				<value>com/aaa/entity/TabQuestion.hbm.xml</value>
+				<value>com/aaa/entity/TabRoleFunction.hbm.xml</value>
+				<value>com/aaa/entity/TabSubject.hbm.xml</value>
+				<value>com/aaa/entity/TabClasses.hbm.xml</value>
+				<value>com/aaa/entity/TabRole.hbm.xml</value>
+				<value>com/aaa/entity/TabTeacher.hbm.xml</value>
+				<value>com/aaa/entity/TabExamSubject.hbm.xml</value>
+				<value>com/aaa/entity/TabFunction.hbm.xml</value>
+				<value>com/aaa/entity/TabStudentExam.hbm.xml</value>
+				<value>com/aaa/entity/TabExam.hbm.xml</value>
+				<value>com/aaa/entity/TabGrade.hbm.xml</value>
+				<value>com/aaa/entity/TabOption.hbm.xml</value>
+				<value>com/aaa/entity/TabStudent.hbm.xml</value>
+				<value>com/aaa/entity/TabCode.hbm.xml</value>
+				<value>com/aaa/entity/TabUser.hbm.xml</value>
+				<value>com/aaa/entity/TabOptionBack.hbm.xml</value>
+				<value>
+					com/aaa/entity/TabStudentExamAnswer.hbm.xml
+				</value></list>
+		</property></bean>
+		
+		<!-- 配置HibernateTemplate类 -->
+		<bean id="template" class="org.springframework.orm.hibernate3.HibernateTemplate">
+			<!-- 注入工厂 -->
+			<property name="sessionFactory" ref="sessionFactory"></property>
+		</bean>
+		
+		
+</beans>

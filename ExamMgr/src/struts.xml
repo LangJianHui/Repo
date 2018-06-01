@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+
+	<constant name="struts.i18n.encoding" value="utf-8"></constant>
+	<package name="default" extends="struts-default" namespace="/">
+	<!-- 年级 -->
+		<action name="grade_*" class="com.aaa.action.GradeAction" method="{1}">
+			<result name="success">/admin/grade_list.jsp</result>
+			<result name="save" type="redirectAction">grade_findAll.action</result>
+			<result name="findById">/admin/grade_update.jsp</result>
+			<result name="update" type="redirectAction">grade_findAll.action</result>
+		</action>
+		<!-- 科目 -->
+		<action name="subject_*" class="com.aaa.action.SubjectAction" method="{1}">
+			<result name="findAll" >/admin/subject_list.jsp</result>
+		</action>
+	
+	</package>
+
+</struts>    
