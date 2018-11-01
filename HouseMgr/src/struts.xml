@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<constant name="struts.i18n.encoding" value="utf-8"></constant>
+	<constant name="struts.devMode" value="true"></constant>
+	
+	<package name="default" extends="struts-default,json-default" namespace="/">
+		<action name="house_*" class="com.aaa.controller.HouseAction" method="{1}">
+			<result name="save" type="redirectAction">house_queryAll.action</result>
+			<result name="query_success" >/query_success.jsp</result>
+			<result name="list_all" >/list_all.jsp</result>
+			<result name="select">/select.jsp</result>
+			<result name="update" type="redirectAction">house_queryAll.action</result>
+			<result name="delete" type="redirectAction">house_queryAll.action</result>
+			<result name="json1"  type="json">
+				<param name="root">jsonList</param>
+			</result>
+			<result name="queryByPages">/${target}.jsp</result>
+		</action>
+	</package>
+</struts>    
+ 
